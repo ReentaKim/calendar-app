@@ -1,5 +1,7 @@
 package com.example.calendarapp.event;
 
+import com.example.calendarapp.event.update.AbstractAuditableEvent;
+
 import java.time.ZonedDateTime;
 
 public class Todo extends AbstractEvent {
@@ -21,5 +23,10 @@ public class Todo extends AbstractEvent {
     @Override
     public boolean supports(EventType type) {
         return type == EventType.TO_DO;
+    }
+
+    @Override
+    protected void update(AbstractAuditableEvent update) {
+
     }
 }
