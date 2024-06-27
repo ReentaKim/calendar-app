@@ -27,6 +27,12 @@ public class CalendarAppApplication {
                 "할 일 적기"
         );
         schedule.add(todo1);
+
+        Todo todo2 = new Todo(
+                3, "todo2", ZonedDateTime.now().plusHours(5), ZonedDateTime.now().plusHours(4),
+                "할 일 적기222"
+        );
+        schedule.add(todo2);
 //        list.forEach(Event::print);
 
 //        schedule.printBy(EventType.TO_DO);

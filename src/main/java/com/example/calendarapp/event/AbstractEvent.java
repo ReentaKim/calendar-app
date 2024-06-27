@@ -1,5 +1,7 @@
 package com.example.calendarapp.event;
 
+import com.example.calendarapp.exception.InvalidEventException;
+
 import java.time.Duration;
 import java.time.ZonedDateTime;
 
@@ -18,7 +20,7 @@ public abstract class AbstractEvent implements Event {
     public AbstractEvent(int id, String title,
                          ZonedDateTime startAt, ZonedDateTime endAt) {
         if (startAt.isAfter(endAt)) {
-            throw new IllegalArgumentException(
+            throw new InvalidEventException(
                     String.format("시작일은 종료일보다 이전이어야 합니다. 시작일=%s, 종료일=%s", startAt, endAt)
             );
         }
@@ -32,6 +34,7 @@ public abstract class AbstractEvent implements Event {
         ZonedDateTime now = ZonedDateTime.now();
         this.createdAt = now;
         this.modifiedAt = now;
+
         this.deletedYn = false;
     }
 
