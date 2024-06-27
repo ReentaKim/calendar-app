@@ -5,6 +5,7 @@ import com.example.calendarapp.event.Meeting;
 import com.example.calendarapp.event.Schedule;
 import com.example.calendarapp.event.update.UpdateMeeting;
 import com.example.calendarapp.reader.EventCsvReader;
+import com.example.calendarapp.reader.RawCsvReader;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
@@ -15,7 +16,7 @@ public class CalendarAppApplication {
     public static void main(String[] args) throws IOException {
         Schedule schedule = new Schedule();
 
-        EventCsvReader csvReader = new EventCsvReader();
+        EventCsvReader csvReader = new EventCsvReader(new RawCsvReader());
         String meetingCsvPath = "/data/meeting.csv";
 
         List<Meeting> meetings = csvReader.readMeetings(meetingCsvPath);
